@@ -1,8 +1,25 @@
 <resources>
+    <!--APP NAME-->
     <string name="app_name">LIBRARIVS</string>
 
+    <!--NAVIGATION BAR-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
+
+    <!--Manual Entry Form-->
+    <string name="instructionsTitle">Enter your source information in the following fields:</string>
+    <string name="authorLastName">Author Last Name</string>
+    <string name="authorFirstName">Author First Name</string>
+    <string name="bookTitle">Book Title</string>
+    <string name="advancedInfo">Advanced Info (optional):</string>
+    <string name="bookVol">Vol.</string>
+    <string name="bookEd">Ed.</string>
+    <string name="bookSeries">Series</string>
+    <string name="publicationInfo">Publication Info:</string>
+    <string name="bookPublisher">Publisher Name</string>
+    <string name="bookCity">City</string>
+    <string name="bookYear">Year</string>
+
+
 </resources>

@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,6 +24,10 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
     public static final String TAG = MainActivity.class.getSimpleName();
     @Bind(R.id.beginButton) Button mBeginButton;
+    @Bind(R.id.drawer_layout) DrawerLayout mDrawer;
+    @Bind(R.id.fab) FloatingActionButton mFab;
+    @Bind(R.id.nav_view) NavigationView mNavigationView;
+    @Bind(R.id.toolbar) Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,29 +41,37 @@ public class MainActivity extends AppCompatActivity
         ButterKnife.bind(this);
 
         //TOOLBAR
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
 
         //FAB
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "This will bring user to barcode scanner (TODO: Add that functionality)", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        mFab.setOnClickListener(this);
 
         //DRAWER
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+                this, mDrawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawer.addDrawerListener(toggle);
         toggle.syncState();
 
         //NAVIGATION VIEW
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        mNavigationView.setNavigationItemSelectedListener(this);
+
+        mBeginButton.setOnClickListener(this);
+
+    } //END ON CREATE METHOD
+
+    //CLICK LISTENERS
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()) {
+            case R.id.beginButton:
+                Intent intent = new Intent(MainActivity.this, ManualEntryActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.fab:
+                Snackbar.make(view, "This will bring user to barcode scanner (TODO: Add that functionality)", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                break;
+        }
 
     }
 
@@ -66,9 +79,8 @@ public class MainActivity extends AppCompatActivity
     //STOCK NAVIGATION METHODS
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
+            mDrawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
@@ -112,17 +124,9 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        mDrawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    //BEGIN CUSTOM METHODS
-    @Override
-    public void onClick(View view) {
-        if (view == mBeginButton) {
-            Intent intent = new Intent(MainActivity.this, ManualEntryActivity.class);
-            startActivity(intent);
-        }
-    }
+
 }
