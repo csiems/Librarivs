@@ -23,10 +23,11 @@
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:id="@+id/textView2"
-        android:layout_marginTop="117dp"
+        android:layout_marginTop="169dp"
         android:textSize="70sp"
         android:textColor="@color/button_material_light"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:linksClickable="true" />
 
 </RelativeLayout>
