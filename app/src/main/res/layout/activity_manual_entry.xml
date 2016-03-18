@@ -14,7 +14,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:fillViewport="false"
-        android:background="@color/colorPrimaryDarkOpaque">
+        android:background="@color/colorPrimaryOpaque">
 
         <LinearLayout
             android:orientation="vertical"
@@ -30,21 +30,21 @@
                 android:textAlignment="center">
             </com.siems.christopher.librarivs.BoldTextView>
             <com.siems.christopher.librarivs.PrimaryEditText
-                android:id="@+id/lastNameEditText"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/colorAccent"
-                android:hint="@string/authorLastName"
-                android:inputType="textPersonName"
-                android:layout_width="fill_parent">
-            </com.siems.christopher.librarivs.PrimaryEditText>
-            <com.siems.christopher.librarivs.PrimaryEditText
-                android:id="@+id/firstNameEditText"
+                android:id="@+id/authorFirstNameEditText"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/colorAccent"
                 android:hint="@string/authorFirstName"
                 android:inputType="textPersonName"
                 android:layout_width="fill_parent"
                 android:linksClickable="true">
+            </com.siems.christopher.librarivs.PrimaryEditText>
+            <com.siems.christopher.librarivs.PrimaryEditText
+                android:id="@+id/authorLastNameEditText"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorAccent"
+                android:hint="@string/authorLastName"
+                android:inputType="textPersonName"
+                android:layout_width="fill_parent">
             </com.siems.christopher.librarivs.PrimaryEditText>
             <com.siems.christopher.librarivs.PrimaryEditText
                 android:id="@+id/bookTitleEditText"
@@ -88,7 +88,7 @@
                 android:layout_width="fill_parent">
             </com.siems.christopher.librarivs.PrimaryEditText>
             <com.siems.christopher.librarivs.BoldTextView
-                android:id="@+id/publicationTextView"
+                android:id="@+id/publicationDateEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -127,7 +127,8 @@
                 android:text="Submit"
                 android:id="@+id/submitNewButton"
                 android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true" />
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorPrimaryDark" />
 
         </LinearLayout>
     </ScrollView>

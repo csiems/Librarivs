@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.siems.christopher.librarivs.BibliographyActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/bibliographyScrollView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.siems.christopher.librarivs.BoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bibliography"
+                android:textAlignment="center"
+                android:textSize="40sp"/>
+
+            <com.siems.christopher.librarivs.PrimaryTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

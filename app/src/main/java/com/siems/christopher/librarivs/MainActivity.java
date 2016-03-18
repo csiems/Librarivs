@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
+            //Switch statement requires compile time constants, Butterknife bindings don't happen until onCreate (i.e. they don't cut it)
             case R.id.beginButton:
                 Intent intent = new Intent(MainActivity.this, ManualEntryActivity.class);
                 startActivity(intent);
