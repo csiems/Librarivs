@@ -4,11 +4,18 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+
 public class BibliographyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Montserratt-Regular.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
         setContentView(R.layout.activity_bibliography);
 
         Intent intent = getIntent();
@@ -20,6 +27,6 @@ public class BibliographyActivity extends AppCompatActivity {
         String bookSeries = intent.getStringExtra("bookSeries");
         String publisher = intent.getStringExtra("publisher");
         String bookYear = intent.getStringExtra("bookYear");
-        String publicationDate = intent.getStringExtra("publicationDate");
+        String bookCity = intent.getStringExtra("bookCity");
     }
 }

@@ -88,7 +88,7 @@
                 android:layout_width="fill_parent">
             </com.siems.christopher.librarivs.PrimaryEditText>
             <com.siems.christopher.librarivs.BoldTextView
-                android:id="@+id/publicationDateEditText"
+                android:id="@+id/publicationInfoTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"

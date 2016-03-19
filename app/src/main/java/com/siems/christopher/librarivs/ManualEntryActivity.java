@@ -4,11 +4,16 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class ManualEntryActivity extends AppCompatActivity implements View.OnClickListener {
+    @Bind(R.id.submitNewButton) Button mSubmitNewButton;
     @Bind(R.id.authorFirstNameEditText) EditText mAuthorFirstName;
     @Bind(R.id.authorLastNameEditText) EditText mAuthorLastName;
     @Bind(R.id.bookTitleEditText) EditText mBookTitle;
@@ -16,13 +21,21 @@ public class ManualEntryActivity extends AppCompatActivity implements View.OnCli
     @Bind(R.id.bookEdEditText) EditText mBookEd;
     @Bind(R.id.bookSeriesEditText) EditText mBookSeries;
     @Bind(R.id.publisherEditText) EditText mPublisher;
+    @Bind(R.id.bookCityEditText) EditText mBookCity;
     @Bind(R.id.bookYearEditText) EditText mBookYear;
-    @Bind(R.id.publicationDateEditText) EditText mPublicationDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Montserratt-Regular.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
         setContentView(R.layout.activity_manual_entry);
+        ButterKnife.bind(this);
+
+        mSubmitNewButton.setOnClickListener(this);
     }
 
 
@@ -39,7 +52,7 @@ public class ManualEntryActivity extends AppCompatActivity implements View.OnCli
                 String bookSeries = mBookSeries.getText().toString();
                 String publisher = mPublisher.getText().toString();
                 String bookYear = mBookYear.getText().toString();
-                String publicationDate = mPublicationDate.getText().toString();
+                String bookCity = mBookCity.getText().toString();
                 Intent intent = new Intent(ManualEntryActivity.this, BibliographyActivity.class);
                 intent.putExtra("authorFirstName", authorFirstName);
                 intent.putExtra("authorLastName", authorLastName);
@@ -49,7 +62,8 @@ public class ManualEntryActivity extends AppCompatActivity implements View.OnCli
                 intent.putExtra("bookSeries", bookSeries);
                 intent.putExtra("publisher", publisher);
                 intent.putExtra("bookYear", bookYear);
-                intent.putExtra("publicationDate", publicationDate);
+                intent.putExtra("bookCity", bookCity);
+                Toast.makeText(this, "Sending data!", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
         }
