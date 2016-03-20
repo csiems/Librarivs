@@ -22,4 +22,13 @@
     <string name="bookYear">Year</string>
 
 
+    <!--Bibliography Page-->
+    <string name="bibliographyBookStandard">
+        %1$s, %2$s. <i>%3$s</i>. %4$s: %5$s, %6$s. <!--last, first. title. city: publisher, year.-->
+    </string>
+    <string name="bibliographyBookAdvanced">
+        %1$s, %2$s. <i>%3$s</i>. Ed. %4$s. Vol. %5$s. %6$s: %7$s, %8$s. Print. %9$s. <!--last, first. title. edition. volume. city: publisher, year. series.-->
+    </string>
+
+
 </resources>
